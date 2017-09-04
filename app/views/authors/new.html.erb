@@ -1,0 +1,42 @@
+<div class='container'>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="add-author-form">
+                <h1 class='text-info'>Add New Author</h1>
+
+                <%= form_for(@author, html: {class: 'add-author-form'}) do |f| %>
+                    <% if @author.errors.any? %>
+                        <%= pluralize(@author.errors.count, "error") %>
+                     prohibited this author from being saved:
+                        <% @author.errors.full_messages.each do |message| %>
+                        <%= message %>
+                    <% end %>
+                    <%end %>
+
+                  <table class="table table-condensed">
+                    <tr>
+                    <td><%= f.label :name, class: 'text-info' %></td>
+                    <td><%= f.text_field :name, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                    <td><%= f.label :DoB, class: 'text-info' %></td>
+                    <td><%= f.date_field :DoB, class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                    <td><%= f.label :DoD, class: 'text-info' %></td>
+                    <td><%= f.date_field :DoD,  class: 'form-control' %></td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td><%= f.submit class:'btn btn-success'%></td>
+                    </tr>
+                    </table>
+
+                <% end %>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+</div>

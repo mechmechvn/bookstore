@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h1>New book here</h1>
+      <%= form_for(@book) do |f| %>
+        <table class="table table-striped table-condensed">
+          <tr>
+            <td><%= f.label :name %></td>
+            <td><%= f.text_field :name, class: 'form-control', placeholder: 'Enter book\'s name' %></td>
+
+          </tr>
+          <tr>
+            <td><%= f.label :author_id %></td>
+            <td><%= f.select :author_id, @authors.collect { |a| [a.name, a.id] }, {}, { class: 'form-control' }%></td>
+          </tr>
+          <tr>
+            <td><%= f.label :published_year %></td>
+            <td><%= f.number_field :published_year, class: 'form-control', placeholder: 'Enter published year'%></td>
+          </tr>
+          <tr>
+            <td><%= f.label :price %></td>
+            <td><%= f.number_field :price, class: 'form-control', placeholder: 'Enter price' %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :summary %></td>
+            <td><%= f.text_field :summary, class: 'form-control', placeholder: 'Summary the book shortly' %></td>
+          </tr>
+          <tr>
+            <td colspan="2"><%= f.submit class: 'btn btn-success pull-right'  %></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
